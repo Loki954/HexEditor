@@ -1,0 +1,50 @@
+name: Publish
+
+# Publishes release/HexEditor.exe as GitHub release v<release/version.txt>
+# (skipped if that release already exists). The in-app updater reads the
+# latest release. Release tags are kept on commits that contain no source code.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Keep release tags free of source code
+        run: |
+          git fetch --tags --force
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          for t in $(git tag -l 'v*'); do
+            if git ls-tree -r --name-only "$t" | grep -qiE '\.(cs|bat)$'; then
+              echo "Re-pointing $t to $GITHUB_SHA"
+              git tag -f "$t" "$GITHUB_SHA"
+              git push -f origin "refs/tags/$t"
+            fi
+          done
+
+      - name: Publish release (if new)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ver=$(tr -d ' \r\n' < release/version.txt)
+          tag="v$ver"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists — nothing to publish."
+            exit 0
+          fi
+          cd release
+          sha256sum HexEditor.exe > HexEditor.exe.sha256
+          gh release create "$tag" HexEditor.exe HexEditor.exe.sha256 \
+            --target "$GITHUB_SHA" --title "Hex Editor $tag" --notes-file NOTES.md
+          echo "Published $tag"
