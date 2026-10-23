@@ -28,6 +28,14 @@ The program checks for new versions on its own and can update itself.
 - **Open / Save / Save as / Close** for each pane, plus drag & drop
 - **Auto-update** from GitHub Releases, verified with SHA-256
 
+### EEPROM tools (Tools ▾ in each pane)
+
+- **Byte swap 16-bit**, **word swap 32-bit** and **reverse 32-bit** for the selection or the whole file
+- **Fill** with FF / 00 / any byte, and **resize / pad** to a chip size
+- **Split** into 2, 4 or 8 parts, **de-interleave** into even and odd bytes, **interleave** or **join** A + B
+- **Chip detection** from the dump size: 24Cxx, 93Cxx, 95xxx and 25xx SPI flash
+- **Bad-read warnings**: blank dumps (all FF or all 00), and repeating or mirrored data, which points to the wrong chip type in the programmer
+
 ## Keyboard shortcuts
 
 | Keys | Action |
