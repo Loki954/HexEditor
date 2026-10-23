@@ -28,6 +28,13 @@ The program checks for new versions on its own and can update itself.
 - **Open / Save / Save as / Close** for each pane, plus drag & drop
 - **Auto-update** from GitHub Releases, verified with SHA-256
 
+### Checksums
+
+- **Auto-detected** when a dump is opened: Sum8/16/32, word sums, two's complement, inverted, XOR, CRC-8/16/32 variants, plus block size and checksum position
+- Checksum bytes are **framed green / red**, and **F9** fixes every wrong checksum in one step
+- You are **asked before saving** if checksums are wrong
+- **Calculator** for any selection, and your own **presets** per module
+
 ### EEPROM tools (Tools ▾ in each pane)
 
 - **Byte swap 16-bit**, **word swap 32-bit** and **reverse 32-bit** for the selection or the whole file

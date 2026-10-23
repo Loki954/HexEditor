@@ -1,9 +1,10 @@
-## Hex Editor 1.2.0 — EEPROM tools
+## Hex Editor 1.3.0 — Checksums
 
-- **Tools ▾** button in each pane:
-  - Swap bytes 16-bit (AB CD → BA DC), swap words 32-bit, reverse 32-bit, for the selection or the whole file
-  - Fill the selection, block or whole file with any byte (FF, 00…)
-  - Resize or pad to a chip size (24Cxx, 93Cxx, 95xxx, 25xx SPI flash). Padding uses FF
-  - Split into 2, 4 or 8 parts. De-interleave into even and odd bytes. Interleave or join panes A + B
-- **Chip detection**: the file info line shows the matching chips for the dump size (e.g. 24C08 · 93C76 · 95080)
-- **Bad-read warnings**: blank dumps (all FF or all 00), and data that repeats, which points to the wrong chip type in the programmer (for example a 24C04 read as 24C08)
+- **Automatic checksum detection** when a dump is opened. It works out the block size, checksum position and algorithm from the file itself:
+  - Sum8 / Sum16 / Sum32, sum of 16-bit words, two's complement, inverted, sum + constant, XOR
+  - CRC-8 (incl. SAE-J1850, AUTOSAR), CRC-16 (ARC, MODBUS, CCITT, XMODEM, KERMIT, X-25), CRC-32 (incl. MPEG-2, BZIP2)
+  - It is only applied automatically when the match is strong. Blank, repeated and non-matching blocks are ignored
+- **Checksum bytes are framed**: green when correct, red when wrong after editing. Broken blocks are also marked in the scrollbar
+- **F9 fixes all wrong checksums** in one step (Ctrl+Z undoes it)
+- **Before saving**, you are asked to fix wrong checksums. This can also be set to always fix
+- **Tools ▾ → Checksum**: Auto-detect (with a list of candidates and confidence), Calculator for any selection, and saving or applying your own **presets** per module
