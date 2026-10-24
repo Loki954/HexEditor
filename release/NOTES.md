@@ -1,5 +1,5 @@
-## Hex Editor 1.3.1
+## Hex Editor 1.3.2
 
-- **⚑ Report bug** in the status bar sends a description, an optional contact, the app and Windows version, the error log and optionally the open dumps straight to the developer
-- After a crash, the error window offers to send a bug report
-- **♥ Donate** in the status bar opens PayPal to support Hex Editor
+- The window now opens **centred on the screen** and always fits the screen, including laptops and high-DPI displays
+- **Report bug** and **Donate** are now bright pill buttons that gently blink, so they're easy to see
+- The bug report window opens in the centre of the screen
