@@ -16,6 +16,8 @@ The program checks for new versions on its own and can update itself.
 
 ## Features
 
+- **Menu bar** with every command and setting, and the shortcut shown next to each item
+
 - **Two panes (A / B)**: differences are shown in red, and bytes past the end of the shorter file in brown
 - **Copy A → B / B → A** copies the selection (or the difference under the cursor) at the same offset
 - **Next / previous difference** (F8 / Shift+F8), with a difference map in the scrollbar
