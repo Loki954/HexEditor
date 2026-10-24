@@ -26,6 +26,12 @@ The program checks for new versions on its own and can update itself.
 - **Clipboard**: copy/paste as hex or text, including block copy/paste
 - **Find** (Ctrl+F, hex or text), **Go to offset** (Ctrl+G), **Undo/Redo**
 - **Open / Save / Save as / Close** for each pane, plus drag & drop
+- **Search highlights every match**, with a count, F3 / Shift+F3 for next / previous, and marks in the scrollbar
+- **Bookmarks with notes** (Ctrl+B), saved per file and restored automatically, with export / import
+- **Strings panel** (Ctrl+T) listing every readable text, with VINs detected (even reversed)
+- **Recent files** (▾ next to Open), and the window size and position are remembered
+- **Light / dark theme**
+- **Backup on save**: the original is kept as `name.orig.bin` the first time you save
 - **Auto-update** from GitHub Releases, verified with SHA-256
 
 ### Checksums
@@ -55,7 +61,9 @@ The program checks for new versions on its own and can update itself.
 | Ctrl+C / Ctrl+X / Ctrl+V | Copy / cut / paste |
 | Insert | Toggle insert / overwrite |
 | Ctrl+Z / Ctrl+Y | Undo / redo |
-| Ctrl+F / F3 | Find / find next |
+| Ctrl+F / F3 / Shift+F3 | Find / next / previous match (Esc clears highlights) |
+| Ctrl+B | Add bookmark |
+| Ctrl+T | Strings panel |
 | Ctrl+G | Go to offset |
 | F1 | Help |
 
