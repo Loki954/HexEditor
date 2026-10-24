@@ -61,6 +61,12 @@ The program checks for new versions on its own and can update itself.
 
 Command line: `HexEditor.exe file1 file2`
 
+## Support
+
+Found a problem? Click **⚑ Report bug** in the status bar of the app.
+
+If Hex Editor saves you time, you can support it here: **[♥ Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=7AJ4UGND5D3DC)**
+
 ---
 
 © 2026 **Loki954** · [www.loki954.com](https://www.loki954.com) · All rights reserved.
