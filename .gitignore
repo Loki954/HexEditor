@@ -1,0 +1,6 @@
+*.exe
+!release/HexEditor.exe
+*.exe.new
+*.exe.old
+*.zip
+Thumbs.db
