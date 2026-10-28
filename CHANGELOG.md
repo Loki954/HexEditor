@@ -1,5 +1,9 @@
 # Hex Editor — version history
 
+## Version 1.8.5
+
+- Internal improvements
+
 ## Version 1.8.4
 
 - **Smoother scrolling in compare view**: the second file (B) could lag behind, stutter or skip lines while scrolling because it was redrawn only after file A. Both files now move and redraw together on every wheel step, scrollbar drag and PageUp / PageDown
