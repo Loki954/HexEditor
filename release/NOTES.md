@@ -1,4 +1,4 @@
-## Version 1.8.7
+## Version 1.8.8
 
-- **Fixed: clicking the scrollbar no longer clears your selection.** In compare view, clicking a red difference mark on the scrollbar used to jump *and* wipe whatever you had selected. Now it just scrolls to the difference and leaves your selection alone.
-- **New: Mark start / Select to here** — select a large range without dragging. Right-click (or the Edit menu) → "Mark selection start", scroll to the end byte, then → "Select to here". Everything between is selected, even across many screens.
+- **Scrollbar now pages up/down.** Clicking the scrollbar track moves one screen toward the click (like a normal scrollbar) instead of jumping straight to that position. Drag the thumb to go to an exact spot; clicking a red difference mark still jumps to that difference.
+- **Much faster copy/paste of large blocks.** Copying a big selection (over ~1 MB) no longer freezes — it skips the slow Windows clipboard step. Paste still works between the two panes. Tip: "Copy A → B" / "Copy B → A" is the quickest way to copy a chunk from one pane to the other.
