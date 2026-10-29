@@ -39,16 +39,17 @@ jobs:
         run: |
           ver=$(tr -d ' \r\n' < release/version.txt)
           tag="v$ver"
-          if gh release view "$tag" >/dev/null 2>&1; then
-            echo "Release $tag already exists — nothing to publish."
-            exit 0
-          fi
           if [ ! -f release/HexEditor.exe ]; then
             echo "No release/HexEditor.exe yet — nothing to publish."
             exit 0
           fi
           cd release
           sha256sum HexEditor.exe > HexEditor.exe.sha256
-          gh release create "$tag" HexEditor.exe HexEditor.exe.sha256 \
-            --target "$GITHUB_SHA" --title "Hex Editor $tag" --notes-file NOTES.md
-          echo "Published $tag"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag exists — updating assets."
+            gh release upload "$tag" HexEditor.exe HexEditor.exe.sha256 --clobber
+          else
+            gh release create "$tag" HexEditor.exe HexEditor.exe.sha256 \
+              --target "$GITHUB_SHA" --title "Hex Editor $tag" --notes-file NOTES.md
+          fi
+          echo "Published/updated $tag"
