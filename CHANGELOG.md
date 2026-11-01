@@ -1,5 +1,10 @@
 # Hex Editor — version history
 
+## Version 1.8.9
+
+- **New start-up splash screen** with the Hex Editor name and website.
+- Donate now goes through **Stripe**.
+
 ## Version 1.8.8
 
 - **Scrollbar now pages up/down.** Clicking the scrollbar track moves one screen toward the click (like a normal scrollbar) instead of jumping straight to that position. Drag the thumb to go to an exact spot; clicking a red difference mark still jumps to that difference.
