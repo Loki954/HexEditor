@@ -1,5 +1,9 @@
 # Hex Editor — version history
 
+## Version 1.8.10
+
+- Minor improvements.
+
 ## Version 1.8.9
 
 - **New start-up splash screen** with the Hex Editor name and website.
